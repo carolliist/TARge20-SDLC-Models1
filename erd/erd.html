@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        /* The Modal (background) */
+        .modal {
+            display: none;
+            /* Hidden by default */
+            position: fixed;
+            /* Stay in place */
+            z-index: 1;
+            /* Sit on top */
+            padding-top: 100px;
+            /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%;
+            /* Full width */
+            height: 100%;
+            /* Full height */
+            overflow: auto;
+            /* Enable scroll if needed */
+            background-color: rgb(0, 0, 0);
+            /* Fallback color */
+            background-color: rgba(0, 0, 0, 0.4);
+            /* Black w/ opacity */
+        }
+
+        /* Modal Content */
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+
+        /* The Close Button */
+        .close {
+            color: #aaaaaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        td, th {
+            border: 1px solid black;
+            padding: 1rem;
+        }
+
+        th{
+            color: #fff;
+            background-color: darkblue;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <h2>Fridge Database</h2>
+
+    <button id="myBtn">Open ERD</button>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Fridge ERD</h3>
+            <img src="../img/FridgeERD.png" alt="ERD">
+
+            <h3>ERD Description</h3>
+
+            <h4>Table FoodType</h4>
+            <ul>
+                <li>Tabelis FoodType on kaks lahtrit "Id" ning "TypeName". </li>
+                <li>"Id" näitab järjekorra numbrit (1,2,3,4) ning "TypeName" all on välja toodud erinevad toiduained (köögiviljad, liha-, piima- ja kalatooted). Ehk siis asukohal 1 on "Dairy" - piimatooted, Asukohal 2 on "Meat and Poultry" - looma -ja linnuliha jne..  </li>
+                <li>FoodType tabelis on Primary Key. </li>
+            </ul>
+
+            <h4>Table FoodInTheFridge</h4>
+            <ul>
+                <li>Tabelis FoodInTheFridge on kolm lahtrit "Id", "Name" ning "TypeId".</li>
+                <li>"Id" näitab taaskord järjekorra numbrit. "Name" - Nimi lahtri all on välja toodud täpsemad toiduainete alla kuuluvad toidud (Puuviljade alla kuuluvad tomat ja brokkoli) jne.. Ning "TypeId" lahter määrabki ära selle, et tomat on köögivili ning mitte näiteks piimatoode (Tomati TypeId on 4, ehk siis ta kuulub köögiviljade alla.) jne.. </li>
+                <li>FoodInTheFridge tabel kasutab tabeli FoodType Foreign keyd, et need omavahel seotud oleks. (Näide eelmises punktis - FoodType Id on seotud FoodInTheFridge TypeId-ga. ) </li>
+            </ul>
+        </div>
+
+    </div>
+
+    <h4>FoodType</h4>
+    <table>
+       <tr>
+            <th>Id</th>
+            <th>TypeName</th>
+       </tr>
+       <tr>
+           <td>1</td>
+           <td>Dairy</td>
+       </tr>
+       <tr>
+           <td>2</td>
+           <td>Meat and Poultry</td>
+       </tr>
+       <tr>
+           <td>3</td>
+           <td>Fish and Seafood</td>
+       </tr>
+       <tr>
+           <td>4</td>
+           <td>Vegetable</td>
+       </tr>
+    </table>
+
+    <h4>FoodInTheFridge</h4>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>TypeId</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Fish Fingers</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Tomato</td>
+            <td>4</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Chicken</td>
+            <td>2</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>Can of tuna</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>Broccoli</td>
+            <td>4</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>Cheese</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>Yogurt</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>8</td>
+            <td>Beef steak</td>
+            <td>2</td>
+        </tr>
+    </table>
+
+    <footer style="text-align: center; margin-top: 5rem;">
+         Copyright 2021 &#169 C-L.T. 
+   </footer>
+    <script>
+        var modal = document.getElementById("myModal");
+
+        var btn = document.getElementById("myBtn");
+
+        var span = document.getElementsByClassName("close")[0];
+
+        btn.onclick = function () {
+            modal.style.display = "block";
+        }
+
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+
+</body>
+
+</html>
