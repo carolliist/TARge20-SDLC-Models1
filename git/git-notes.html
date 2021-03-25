@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git and GitHub</title>
+    <style>
+        code{
+            background-color: black;
+            color: white;
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>GIT</h1>
+        <p>Git <a href="https://git-scm.com ">Webpage</a></p>
+        <p>Git is a version control system which you can download to your computer<p></p>
+        <p>Git is a local tool.</p><br>
+        
+        <h2>Repositories, branches, Commits</h2>
+        <img src="../img/git-repo.webp" alt="Repositories, branches, Commits">
+        <p>A Repository is the location where your code is stored, so a folder on your machine containing your project code. After turning this folder into a Git Repository, Git manages the project code version history.</p>
+        <p>The code is not directly stored in the Repository though. Inside our Repository we have “subfolders”, so-called Branches. After we added the first code to our Repository, a default “master” Branch is created. We are not limited to one Branch though, a Repository typically contains multiple Branches. </p>
+        <p>A Branch contains different versions of our code, our Commits. Each Commit is a snapshot of a specific version of the code.</p><br>
+        
+        <h2>How to Install & Use Git</h2>
+        <p>Git is for free and can be <a href="https://git-scm.com/">DOWNLOADED HERE</a></p>
+        <p>Git runs in the terminal (MacOS) or the Command Prompt (Windows) only, so it doesn’t come with a Graphical User Interface (GUI).</p>
+        <p>If you’re working with an IDE, you can also use the integrated terminal.</p><br>
+
+
+        <h2>Git Commands:</h2>
+
+        <code>git init</code>
+        <p>Initialization of a git repository INSIDE a project folder to be managed by git.</p>
+        
+        <code>git status</code>
+        <p>Display status of monitored / tracked files.</p>
+    
+        <code>git add .</code>
+        <p>Add all files to be tracked (individually -> 'git add filename') (= to 'stage' a file(s)).</p>
+        
+        <code>git commit -m "explanation"</code>
+        <p>To save a version of file(s) inside a branch with its commit name.</p>
+       
+        <code>git log</code>
+        <p>To view list of all commit(s) (last commit (HEAD) is on top of the list).</p>
+        
+        <code>git checkout (id of a commit)</code>
+        <p>To view a commit -> this commit becomes the HEAD but is no longer inside its branch anymore (cannot change and commit because this has no branch).</p>
+       
+        <code>git checkout -- .</code>
+        <p>Delete all unstaged changes and go to the  last commit.</p>
+        
+        <code>git reset --hard (id of commit that we want to use)</code>
+        <p>Go to specified commit and  delete all commit(s) after that.</p>
+        
+        <code>git branch</code>
+        <p>To view the branch(es) available ('*' -> current branch).</p>
+      
+        <code>git checkout -b branch-name</code>
+        <p>Create a new branch which have all commits in the previous branch.</p>
+       
+        <code>git merge branch-name</code>
+        <p>Merge branches.</p>
+      
+        <code>git branch -D branch-name</code>
+        <p>Delete a branch.</p>
+       
+        <code>git checkout master = git master</code>
+        <p>Change to (master) branch.</p>
+       
+        <code>git master</code>
+        <p>Reentering master branch</p><br>
+    </div>
+    <hr>
+    <div>
+        <h1>GITHUB</h1>
+        <p>GitHub <a href="https://github.com">Webpage</a></p>
+        <p>GitHub is a hosting & collaboration provider which hosts your Git projects. It is a web based solution allowing you to upload your Git Repositories (more on these in the next chapter) to it.</p>
+        <p>Uploading your code from your local Git environment to GitHub makes your code available to anybody who wants to contribute to your project.</p><br>    
+        
+        <h2>Getting Started with GitHub</h2>
+        <p>First you need to create an account on GitHub . </p>
+        <p>After successfully creating an account, you can create a new remote Repository.</p>
+        <p>After providing a Repository name and an (optional) description, we have to decide if we want to create a public or private Repository.</p>
+        <p>As the name indicates, public Repositories can be seen by anybody on your GitHub page, private Repositories are available for selected people only.</p>
+        <p>Clicking “Create Repository” will now create an empty remote Repository.</p><br>
+        
+        <h2>Local, Remote & Remote Tracking Branches</h2>
+        <p>The remote tracking Branch is the so-called local representation of the remote Branch. Previously we explicitly used git push -u origin master to tell GitHub where we want to push our code to - the master Branch in the origin remote Repository.</p>
+        <p>After the first time we used “push” in this explicit way (the same is also true for “pull” and other commands like “clone”, more on that in a second), this remote tracking Branch is created automatically.</p>
+        <p>With the information of this remote tracking Branch, Git knows that git push should upload code to “origin/master” (our master Branch in the origin remote Repository) and with that the right code can be exchanged between the right Repositories and Branches.</p>
+        <p>Whenever we’re working in our local master Branch, entering git push is all we have to do now to update the code in our remote Repository.</p><br>
+        
+        <h2>Granting Repository Access to Other Users</h2>
+        <p>The “Clone or download” option in our remote Repository provides a URL that can be shared to give others users Repository access.</p>
+        <p>Let’s create a new empty project which should contain our code from the GitHub Repository. We have the URL already, with git clone URL (“URL” should be the URL we just grabbed from GitHub) the entire remote Repository is copied into the folder and also turns this folder into a folder managed by Git.</p>
+        <p>We cloned our Repository and we’re also able to push data to this remote Repository, git push is all we need here.</p><br>
+        
+        <h2>Pulling Data from GitHub</h2>
+        <p>Pushing code or cloning a Repository is great, but we’re also able to receive updated information even after we cloned the data. git fetch downloads information from a remote Repository to the remote tracking Branch. </p>
+        <p>As a second step we need to synchronize our local Branch and the remote tracking Branch. After the successful merge, our three Branches are synchronized again.</p>
+        <p>A more convenient way to achieve the same result is git pull which basically is a combination of git fetch and git merge.</p><br>        
+        
+        <h2>Deleting Repositories</h2>
+        <p>We can also delete remote Repositories. On GitHub “Settings” page.</p>
+        <p>If you scroll down to the “Danger Zone” you can find the option to delete a specific Repository. After confirming the name, the Repository is deleted. But be careful, if the Repository is deleted it’s gone.</p>
+        <p>Besides deleting the Repository from GitHub, we can also remove remote Repositories from our Git project - so the connection between Git and GitHub, the Repository won’t be deleted of course. Just enter git remote rm origin.</p><br>
+
+        <h2>GitHub Commands:</h2>
+        <code>git init</code>
+        <p>Initialization of a git repository INSIDE a project folder to be managed by git.</p>
+        
+        <code>git status</code>
+        <p>Display status of monitored / tracked files.</p>
+
+        <code>git add .</code>
+        <p>Add all files to be tracked (individually -> 'git add filename') (= to 'stage' a file(s)).</p>
+        
+        <code>git remote add origin URL</code>
+        <p> Establishes a connection between the local Git Repository you’re currently working on and the remote Repository (URL should be the URL of this Repository).</p>
+        
+        <code>git remote -v</code>
+        <p>Displays all remote Respositories your local Repository is connected to (“-v” also shows the URL of the remote Repository).</p>
+        
+        <code>git push -u origin master</code>
+        <p>Upload code from your local Branch to a remote Branch in the remote Repository (“origin” is the name of the remote Repository, “master” the name of the remote Branch).</p>
+        
+        <code>git clone</code>
+        <p>Copy or clone an entire remote Repository to your machine. Automatically creates a remote tracking Branch (see below).</p>
+        
+        <code>git push and git pull</code>
+        <p>Upload code to or download code from a remote Repository. Only possible after a remote tracking Branch was created.</p>
+      
+        <code>git fetch</code>
+        <p>Updates the remote tracking Branch with the code from the remote Branch.</p>
+       
+        <code>git remote rm origin</code>
+        <p>Removes the connection between the local Repository and the remote Repository, “origin” is the remote Repository`s name.</p>
+
+        <code>git branch</code>
+        <p> displays all current Branches in our local Repository.</p>
+
+        <code>git remote</code>
+        <p>shows the remote Repository we created on GitHub.</p>
+
+        <code>git branch -r</code>
+        <p>displays the remote tracking Branch.</p>
+
+    </div>
+    <hr>
+    <footer style="text-align: center; margin-top: 5rem;">
+        Copyright 2021 &#169 C-L.T. 
+  </footer>
+  
+</body>
+</html>
